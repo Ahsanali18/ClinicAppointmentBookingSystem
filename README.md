@@ -1,2 +1,2 @@
 # ClinicAppointmentBookingSystem
-<img width="1920" height="669" alt="image" src="https://github.com/user-attachments/assets/1d9015c3-8510-4882-ad2c-29a8509efc1d" />
+<img width="1920" height="675" alt="image" src="https://github.com/user-attachments/assets/e789754b-ffa1-441f-ab1f-a004f8ed4ecd" />
