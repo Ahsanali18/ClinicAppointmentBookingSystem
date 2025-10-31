@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Appointment Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Clinic Appointment System</div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="nav-home">Home</a></li>
+                    <li><a href="#" id="nav-doctors">Doctors</a></li>
+                    <li><a href="#" id="nav-appointments">Appointments</a></li>
+                    <li><a href="#" id="nav-admin" class="hidden">Admin Panel</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="btn-login" class="btn btn-primary">Login</button>
+                <button id="btn-register" class="btn btn-secondary">Register</button>
+                <button id="btn-logout" class="btn btn-danger hidden">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home-section" class="section">
+            <h2 class="section-title">Welcome to Our Clinic</h2>
+            <p>Book appointments with our expert doctors easily and efficiently. Our system ensures you get the care you need when you need it.</p>
+            
+            <div class="grid" style="margin-top: 20px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Easy Booking</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Book appointments with just a few clicks. Select your preferred doctor and time slot.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Expert Doctors</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Our team of certified doctors is ready to provide you with the best medical care.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>24/7 Access</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Access your appointments and medical information anytime, anywhere.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login-section" class="section hidden">
+            <h2 class="section-title">Login</h2>
+            <div id="login-alert" class="alert hidden"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register-section" class="section hidden">
+            <h2 class="section-title">Register</h2>
+            <div id="register-alert" class="alert hidden"></div>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-type">Account Type</label>
+                    <select id="register-type">
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors-section" class="section hidden">
+            <h2 class="section-title">Our Doctors</h2>
+            <div class="grid" id="doctors-list">
+                <!-- Doctors will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Book Appointment Section -->
+        <section id="book-section" class="section hidden">
+            <h2 class="section-title">Book Appointment</h2>
+            <div id="book-alert" class="alert hidden"></div>
+            <form id="book-form">
+                <div class="form-group">
+                    <label for="book-doctor">Select Doctor</label>
+                    <select id="book-doctor" required>
+                        <option value="">Select a doctor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="book-date">Date</label>
+                    <input type="date" id="book-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-time">Time Slot</label>
+                    <select id="book-time" required>
+                        <option value="">Select a time slot</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="book-reason">Reason for Visit</label>
+                    <textarea id="book-reason" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Book Appointment</button>
+            </form>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments-section" class="section hidden">
+            <h2 class="section-title">My Appointments</h2>
+            <div class="tabs">
+                <div class="tab active" data-tab="upcoming">Upcoming</div>
+                <div class="tab" data-tab="past">Past</div>
+            </div>
+            
+            <div class="tab-content active" id="upcoming-appointments">
+                <ul class="appointment-list" id="upcoming-list">
+                    <!-- Upcoming appointments will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="past-appointments">
+                <ul class="appointment-list" id="past-list">
+                    <!-- Past appointments will be populated by JavaScript -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin-section" class="section hidden">
+            <h2 class="section-title">Admin Panel</h2>
+            <div class="tabs">
+                <div class="tab active" data-tab="all-appointments">All Appointments</div>
+                <div class="tab" data-tab="manage-doctors">Manage Doctors</div>
+            </div>
+            
+            <div class="tab-content active" id="all-appointments">
+                <ul class="appointment-list" id="admin-appointments-list">
+                    <!-- All appointments will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="manage-doctors">
+                <button id="btn-add-doctor" class="btn btn-primary" style="margin-bottom: 15px;">Add New Doctor</button>
+                <div class="grid" id="admin-doctors-list">
+                    <!-- Doctors management will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Clinic Appointment Booking System &copy; 2025 | Software Quality Engineering Lab</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
